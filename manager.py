@@ -67,12 +67,11 @@ class Manager:
         }
 
         self.db['entries'].append(new_entry)  # updates the database variable with all the entries
-        self.data.append(new_entry)
 
         with open('db.json', 'w') as new_db:
             json.dump(self.db, new_db, indent=2)  # updates the actual json file
 
-        self.data = sorted(self.data, key=lambda x: x[self.sort_opt[self.sort]])  # sorts the database again
+        self.data = sorted(self.db['entries'], key=lambda x: x[self.sort_opt[self.sort]])  # sorts the database again
 
     def delete_user(self):
         print('\033[1m' + 'Delete User' + '\033[0m')
