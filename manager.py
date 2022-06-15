@@ -67,6 +67,7 @@ class Manager:
         }
 
         self.db['entries'].append(new_entry)  # updates the database variable with all the entries
+        self.data.append(new_entry)
 
         with open('db.json', 'w') as new_db:
             json.dump(self.db, new_db, indent=2)  # updates the actual json file
